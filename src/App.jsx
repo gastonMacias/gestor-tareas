@@ -1,12 +1,19 @@
-
 import './App.css'
 
-function App() {
-  
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
+import BarraNavegacion from './components/barraNavegacion/BarraNavegacion'
+import TaskBoard from './components/taskBoard/TaskBoard'
+
+function App() {
   return (
     <>
-      
+      <BrowserRouter>
+        <BarraNavegacion />
+        <Routes>
+          <Route path='/' element={<TaskBoard />} />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
