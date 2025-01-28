@@ -1,0 +1,15 @@
+.card {
+    border: 1px solid black;
+    border-radius: 15px;
+    width: 20vw;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.titulo_card {
+    margin-top: 10px;
+    border: 0.5px solid grey;
+    padding: 0.5px 15px;
+}

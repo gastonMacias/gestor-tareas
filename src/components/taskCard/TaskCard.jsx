@@ -5,6 +5,14 @@ import "./taskCardStyles.css";
 const TaskCard = () => {
     return (
     <>
+        <div className="card">
+            <div className="titulo_card">
+                <h4>Titulo</h4>
+            </div>
+            <div className="descripcion_card">
+                <p>Descripcion</p>
+            </div>
+        </div>
     </>
     )
 }

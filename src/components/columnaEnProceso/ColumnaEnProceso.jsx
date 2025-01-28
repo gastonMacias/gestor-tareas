@@ -7,6 +7,14 @@ import "./columnaEnProcesoStyles.css";
 const ColumnaEnProceso = () => {
     return (
         <>
+            <div className="columnaEnProceso">
+                <div className="titulo_columna">
+                    <h3>EN PROCESO</h3>
+                </div>
+                <div className="ubicacion_cards">
+
+                </div>
+            </div>
         </>
     )
 }

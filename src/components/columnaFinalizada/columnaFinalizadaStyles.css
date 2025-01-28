@@ -1,0 +1,7 @@
+.columnaFinalizada {
+    border: 1px solid rgb(141, 0, 0);
+    border-radius: 15px;
+    background-color: rgb(141, 0, 0);
+    width: 25vw;
+    height: 60vh;
+}
