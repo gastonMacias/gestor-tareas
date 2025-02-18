@@ -9,7 +9,6 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <BarraNavegacion />
         <Routes>
           <Route path='/' element={<TaskBoard />} />
         </Routes>

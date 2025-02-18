@@ -2,14 +2,14 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-color: black;
+    background-color: #121826;
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
 
 h1 {
-    color: aliceblue;
-
+    color: #E5E7EB;
+    font-family: "Atkinson Hyperlegible Next", serif;
 }
 
 .navbar_list {
@@ -18,14 +18,15 @@ h1 {
     gap: 2REM;
 }
 
-.navbar_item {
-    color: aliceblue;
+.navbar_item{
+    color: #E5E7EB;
     padding: 5px 20px;
     border: 1px solid white;
     cursor: pointer;
+    font-family: "Atkinson Hyperlegible Next", serif;
 }
 
-.navbar_item:hover {
+/* .navbar_item:hover {
     box-shadow: 5px 5px 5px red;
-}
+} */
 
