@@ -16,12 +16,14 @@ h1 {
     list-style-type: none;
     display: flex;
     gap: 2REM;
+    
 }
 
 .navbar_item{
     color: #E5E7EB;
     padding: 5px 20px;
     border: 1px solid white;
+    border-radius: 10px;
     cursor: pointer;
     font-family: "Atkinson Hyperlegible Next", serif;
 }

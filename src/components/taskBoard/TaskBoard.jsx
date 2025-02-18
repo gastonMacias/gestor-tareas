@@ -63,8 +63,8 @@ const TaskBoard = () => {
                     tareas={tareas}
                     eliminarTarea={eliminarTarea}
                     editarTarea={editarTarea} />
-                <ColumnaEnProceso tareas={[]} />
-                <ColumnaFinalizada tareas={[]} />
+                {/* <ColumnaEnProceso tareas={[]} />
+                <ColumnaFinalizada tareas={[]} /> */}
             </div>
 
             {/* TaskEditor recibe la función para agregar tareas */}

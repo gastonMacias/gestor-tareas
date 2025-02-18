@@ -2,7 +2,6 @@
 //componente barra de navegacion en principio va a tener solo una opcion (tarea nueva)
 import { Link } from "react-router-dom";
 import "./navbarStyles.css";
-import { useState } from "react";
 
 
 const BarraNavegacion = ({ setOpen }) => {

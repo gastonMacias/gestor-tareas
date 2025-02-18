@@ -1,5 +1,4 @@
 //componente que contendra el formulario para la creacion de las tareas 
-import "./taskEditorStyles.css";
 
 import { Button, Modal, Box, Typography, TextField } from "@mui/material";
 import { useState, useEffect } from "react";
@@ -51,7 +50,7 @@ const TaskEditor = ({ open, onClose, agregarTarea, tareaEditada }) => {
             aria-describedby="modal-modal-description"
         >
             <Box sx={style}>
-                <Typography id="modal-modal-title" variant="h6" component="h2">
+                <Typography id="modal-modal-title" variant="h6" component="h2" color="primary">
                     Crear Nueva Tarea
                 </Typography>
                 <form onSubmit={handleSubmit}>
