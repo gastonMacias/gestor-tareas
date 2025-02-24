@@ -1,29 +1,49 @@
 
-//componente barra de navegacion en principio va a tener solo una opcion (tarea nueva)
-import { Link } from "react-router-dom";
-import "./navbarStyles.css";
+//componente barra de navegacion en principio va a tener solo una opcion "NUEVA TAREA"
+
+
+import { Box, Button, Typography } from "@mui/material";
 
 
 const BarraNavegacion = ({ setOpen }) => {
-
-
-    //se utiliza el link para un buen uso de las rutas para la apertura en este caso del modal
     return (
-        <nav className="navbar">
-            <h1>GESTOR DE TAREAS</h1>
-            <ul className="navbar_list">
-                <li>
-                    <span className="navbar_item" onClick={() => setOpen(true)} style={{ cursor: "pointer" }}>
-                        NUEVA TAREA
-                    </span>
-                </li>
-                <li>
-                    <Link className="navbar_item" to="/historial">HISTORIAL DE TAREAS</Link>
-                </li>
-            </ul>
-        </nav>
-    )
-}
+        <Box
+            width="100%"
+            height={60}
+            sx={{
+                backgroundColor: (theme) => theme.palette.background.default,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                px: 3,
+            }}
+        >
+            <Typography
+                color="white"
+                fontSize={25}
+                fontWeight="bold"
+            >
+                GESTOR DE TAREAS
+            </Typography>
 
+            <Button
+                variant="contained"
+                sx={{
+                    backgroundColor: (theme) => theme.palette.primary.main,
+                    color: (theme) => theme.palette.primary.contrastText,
+                    fontSize: 14,
+                    fontWeight: "bold",
+                    "&:hover": {
+                        backgroundColor: (theme) => theme.palette.primary.dark
+                    }
+                }}
+                onClick={() => setOpen(true)}
+            >
+                NUEVA TAREA
+            </Button>
+        </Box>
+    );
+};
 
 export default BarraNavegacion;
+
