@@ -1,6 +1,6 @@
 // card que sera parte de las columnas al crear una tarea se crea la card en la columna inicio del taskBoard
 
-import { Box, Button, Card, CardContent, Typography, CardActions } from "@mui/material";
+import { Box, Button, Card, CardContent, Typography, CardActions, Paper } from "@mui/material";
 import "./taskCardStyles.css";
 
 const TaskCard = ({ title, description, eliminarTarea, id, editarTarea }) => {

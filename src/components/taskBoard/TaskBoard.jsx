@@ -2,12 +2,12 @@
 
 
 import { useState } from "react";
-import ColumnaEnProceso from "../columnaEnProceso/ColumnaEnProceso";
-import ColumnaFinalizada from "../columnaFinalizada/ColumnaFinalizada";
-import ColumnaInicio from "../columnaInicio/ColumnaInicio";
-import TaskEditor from "../taskEditor/TaskEditor";
-import "./taskBoardStyles.css";
+
 import BarraNavegacion from "../barraNavegacion/BarraNavegacion";
+import TaskEditor from "../taskEditor/TaskEditor";
+import ColumnaInicio from "../columnaInicio/ColumnaInicio";
+
+import { Container, Box, Grid2, Paper } from "@mui/material";
 
 
 const TaskBoard = () => {
@@ -29,21 +29,21 @@ const TaskBoard = () => {
         setTareas((prevTareas) => {
             // Si existe una tarea con el mismo ID, la reemplazamos
             const tareaExistente = prevTareas.find((t) => t.id === nuevaTarea.id);
-    
+
             if (tareaExistente) {
                 return prevTareas.map((t) =>
                     t.id === nuevaTarea.id ? nuevaTarea : t
                 );
             }
-    
+
             // Si no existe, agregamos una nueva
             return [...prevTareas, nuevaTarea];
         });
-    
+
         setTareaEditada(null); // Limpiamos el estado de edición
         setOpen(false); // Cerramos el modal
     };
-    
+
 
     const eliminarTarea = (id) => {
         console.log("ID a eliminar:", id); // 📌 Verificar el ID recibido
@@ -56,17 +56,38 @@ const TaskBoard = () => {
 
     return (
         <>
+            
+            <Container maxWidth="lg">
             <BarraNavegacion setOpen={setOpen} />
-            <div className="taskBoard">
-
-                <ColumnaInicio
-                    tareas={tareas}
-                    eliminarTarea={eliminarTarea}
-                    editarTarea={editarTarea} />
-                {/* <ColumnaEnProceso tareas={[]} />
-                <ColumnaFinalizada tareas={[]} /> */}
-            </div>
-
+                <Box
+                    sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        mt: 4
+                    }}
+                >
+                    {/* Contenedor con Material UI */}
+                    <Paper
+                        elevation={3}
+                        sx={{
+                            width: "100%",
+                            p: 3,
+                            backgroundColor: (theme) => theme.palette.background.paper
+                        }}
+                    >
+                        <Grid2 container spacing={2}>
+                            <Grid2 item="true" xs={12} md={4}>
+                                <ColumnaInicio
+                                    tareas={tareas}
+                                    eliminarTarea={eliminarTarea}
+                                    editarTarea={editarTarea}
+                                />
+                            </Grid2>
+                        </Grid2>
+                    </Paper>
+                </Box>
+            </Container>
             {/* TaskEditor recibe la función para agregar tareas */}
             <TaskEditor
                 agregarTarea={agregarTarea}
@@ -78,3 +99,8 @@ const TaskBoard = () => {
 }
 
 export default TaskBoard;
+
+
+
+
+
