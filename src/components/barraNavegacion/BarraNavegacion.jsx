@@ -23,7 +23,7 @@ const BarraNavegacion = ({ setOpen }) => {
                 fontSize={25}
                 fontWeight="bold"
             >
-                GESTOR DE TAREAS
+                PIZARRA DE TAREAS
             </Typography>
 
             <Button
