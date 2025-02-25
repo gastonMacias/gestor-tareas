@@ -5,7 +5,7 @@ import { useState } from "react";
 
 import BarraNavegacion from "../barraNavegacion/BarraNavegacion";
 import TaskEditor from "../taskEditor/TaskEditor";
-import ColumnaInicio from "../columnaInicio/ColumnaInicio";
+import Pizarra from "../pizarra/Pizarra";
 
 import { Container, Box, Grid2, Paper } from "@mui/material";
 
@@ -78,7 +78,7 @@ const TaskBoard = () => {
                     >
                         <Grid2 container spacing={2}>
                             <Grid2 item="true" xs={12} md={4}>
-                                <ColumnaInicio
+                                <Pizarra
                                     tareas={tareas}
                                     eliminarTarea={eliminarTarea}
                                     editarTarea={editarTarea}
