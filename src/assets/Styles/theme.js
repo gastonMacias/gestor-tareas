@@ -18,6 +18,17 @@ const theme = createTheme({
       paper: "#1E293B", // Azul más claro
     },
   },
+
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1536,
+    },
+  },
+  
   components: {
     MuiTextField: {
       styleOverrides: {
