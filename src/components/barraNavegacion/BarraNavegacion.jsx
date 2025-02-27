@@ -10,13 +10,24 @@ const BarraNavegacion = ({ setOpen }) => {
         <Box
             width="100%"
             height={60}
-            sx={{
-                backgroundColor: (theme) => theme.palette.background.default,
+            sx={(theme) => ({
+                width: "100%",
+                height: 60,
+                backgroundColor: theme.palette.background.default,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
                 px: 3,
-            }}
+
+                //[theme.breakpoints.down("sm")] dar el responsive en aparatos menores a 600px
+                [theme.breakpoints.down("sm")]: {
+                    flexDirection: "column",
+                    height: "auto",
+                    padding: 2,
+                    gap: 2,
+                    textAlign: "center"
+                },
+            })}
         >
             <Typography
                 color="white"
