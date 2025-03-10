@@ -1,16 +1,22 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
-import { CssBaseline, ThemeProvider } from '@mui/material'
-import theme from './assets/Styles/theme.js'
+import React, { useState } from "react";
+import ReactDOM from "react-dom/client";
+import { ThemeProvider, CssBaseline } from "@mui/material";
+import App from "./App";
+import { getTheme } from "./assets/Styles/theme";
 
+const Main = () => {
+  const [mode, setMode] = useState("light");
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <CssBaseline />
-    <ThemeProvider theme={theme}>
-      <App />
+  const toggleTheme = () => {
+    setMode((prevMode) => (prevMode === "dark" ? "light" : "dark"));
+  };
+
+  return (
+    <ThemeProvider theme={getTheme(mode)}>
+      <CssBaseline />
+      <App toggleTheme={toggleTheme} />
     </ThemeProvider>
-  </StrictMode>,
-)
+  );
+};
+
+ReactDOM.createRoot(document.getElementById("root")).render(<Main />);
