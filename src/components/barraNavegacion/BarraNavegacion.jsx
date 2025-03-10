@@ -3,9 +3,13 @@
 
 
 import { Box, Button, Typography } from "@mui/material";
+import SwitchMode from "../switchMode/SwitchMode";
 
 
-const BarraNavegacion = ({ setOpen }) => {
+
+
+const BarraNavegacion = ({ setOpen, toggleTheme }) => {
+
     return (
         <Box
             width="100%"
@@ -30,9 +34,11 @@ const BarraNavegacion = ({ setOpen }) => {
             })}
         >
             <Typography
-                color="white"
-                fontSize={25}
-                fontWeight="bold"
+                sx={{
+                    color: (theme) => theme.palette.primary.main,
+                    fontSize: 25,
+                    fontWeight: "bold"
+                }}
             >
                 PIZARRA DE TAREAS
             </Typography>
@@ -52,6 +58,7 @@ const BarraNavegacion = ({ setOpen }) => {
             >
                 NUEVA TAREA
             </Button>
+            <SwitchMode onClick={toggleTheme} />
         </Box>
     );
 };
