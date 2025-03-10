@@ -1,36 +1,40 @@
 // card que sera parte de las columnas al crear una tarea se crea la card en la columna inicio del taskBoard
 
 import { Box, Button, Card, CardContent, Typography, CardActions, Paper } from "@mui/material";
-import "./taskCardStyles.css";
 
 const TaskCard = ({ title, description, eliminarTarea, id, editarTarea }) => {
     return (
 
-        <Card sx={{
+        <Card sx={(theme) => ({
             maxWidth: 345,
             textAlign: "center",
             width: 230,
-            backgroundColor: "#1E293B",
-            color: "#E5E7EB",
+            backgroundColor: theme.palette.background.default,
             borderRadius: "12px",
             boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.3)"
-        }}>
+        })}>
             <CardContent>
-                <Box sx={{
-                    backgroundColor: "#FACC15",
+                <Box sx={(theme) => ({
+                    backgroundColor: theme.palette.background.paper,
                     borderRadius: "6px",
                     padding: "6px",
-                    marginBottom: "8px"
-                }}>
+                    marginBottom: "8px",
+                    color: theme.palette.mode.main,
+                })}>
                     <Typography
                         gutterBottom
                         variant="h6"
-                        sx={{ color: "#1E293B", fontWeight: "bold" }}
+                        sx={(theme) => ({ 
+                            color: theme.palette.primary.main, 
+                            fontWeight: "bold" 
+                        })}
                     >
                         {title}
                     </Typography>
                 </Box>
-                <Typography variant="body2" sx={{ color: "#E5E7EB" }}>
+                <Typography variant="body2" sx={(theme) => ({ 
+                    color: theme.palette.text.primary
+                })}>
                     {description}
                 </Typography>
             </CardContent>

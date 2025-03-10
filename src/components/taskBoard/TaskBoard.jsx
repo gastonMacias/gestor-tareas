@@ -10,7 +10,7 @@ import Pizarra from "../pizarra/Pizarra";
 import { Container, Box, Grid2, Paper } from "@mui/material";
 
 
-const TaskBoard = () => {
+const TaskBoard = ({ toggleTheme }) => {
 
     const [tareas, setTareas] = useState([])
 
@@ -56,25 +56,34 @@ const TaskBoard = () => {
 
     return (
         <>
-            
             <Container maxWidth="lg">
-            <BarraNavegacion setOpen={setOpen} />
+                <BarraNavegacion 
+                    setOpen={setOpen} 
+                    toggleTheme={toggleTheme} />
                 <Box
-                    sx={{
+                    sx={(theme) => ({
                         display: "flex",
                         flexDirection: "column",
                         alignItems: "center",
-                        mt: 4
-                    }}
+                        mt: 4,
+                        [theme.breakpoints.down("sm")]: {
+                            justifyContent: "center"
+                        }
+                    })}
                 >
                     {/* Contenedor con Material UI */}
                     <Paper
-                        elevation={3}
-                        sx={{
+                        elevation={20}
+                        sx={(theme) => ({
                             width: "100%",
+                            minHeight: 480,
                             p: 3,
-                            backgroundColor: (theme) => theme.palette.background.paper
-                        }}
+                            backgroundColor: (theme) => theme.palette.background.paper,
+                            [theme.breakpoints.down("sm")]: {
+                                display: "flex",
+                                justifyContent: "center"
+                            }
+                        })}
                     >
                         <Grid2 container spacing={2}>
                             <Grid2 item="true" xs={12} md={4}>
