@@ -15,6 +15,8 @@ const Pizarra = ({ tareas, eliminarTarea, editarTarea }) => {
                         id={tarea.id}
                         title={tarea.title}
                         description={tarea.description}
+                        prioridad={tarea.prioridad}
+                        tarea={tarea}
                         eliminarTarea={eliminarTarea}
                         editarTarea={editarTarea} />
                 ))}
