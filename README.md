@@ -20,16 +20,24 @@ Este es un gestor de tareas inspirado en sistemas como Trello, diseñado para or
 ```
 📦 gestor-tareas
 ├── 📂 src
+│   ├── 📂 assets
+│   │   ├── 📂 Styles
+│   │       ├── 📜 theme.jsx           # Configuración de tema con breakpoints
 │   ├── 📂 components
-│   │   ├── 📜 TaskCard.jsx   # Tarjetas individuales de tareas
-│   │   ├── 📜 TaskEditor.jsx  # Formulario para crear/editar tareas
-│   │   ├── 📜 Navbar.jsx      # Barra de navegación
-│   │   ├── 📜 Pizarra.jsx     # Contenedor de las tareas
-│   ├── 📂 pages
-│   │   ├── 📜 TaskBoard.jsx   # Página principal con la pizarra
+│   │   ├── 📂 barraNavegacion
+│   │   │   ├── 📜 barraNavegacion.jsx   # Navbar
+│   │   ├── 📂 pizarra
+│   │   │   ├── 📜 pizarra.jsx           # Pizarra
+│   │   ├── 📂 taskCard
+│   │   │   ├── 📜 TaskCard.jsx          # Tarjetas individuales de tareas
+│   │   ├── 📂 taskEditor
+│   │   │   ├── 📜 TaskEditor.jsx        # Formulario para crear/editar tareas
+│   │   ├── 📂 switchMode
+│   │   │   ├── 📜 switchMode.jsx        # Componente switch del modo light/dark
+│   │   ├── 📂 taskBoard
+│   │   │   ├── 📜 TaskBoard.jsx     # Página principal con la pizarra
 │   ├── 📜 App.jsx             # Punto de entrada de la app
 │   ├── 📜 main.jsx            # Renderizado principal con ReactDOM
-│   ├── 📜 theme.jsx           # Configuración de tema con breakpoints
 ├── 📜 package.json            # Dependencias del proyecto
 ├── 📜 vite.config.js          # Configuración de Vite
 └── 📜 README.md               # Documentación del proyecto
