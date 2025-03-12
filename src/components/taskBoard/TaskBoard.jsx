@@ -25,6 +25,12 @@ const TaskBoard = ({ toggleTheme }) => {
         setOpen(true)
     }
 
+    const handleClose = () => {
+        setTareas(""); //reinicia el estado
+        setOpen(false); //cierra el modal
+    }
+
+
     const agregarTarea = (nuevaTarea) => {
         setTareas((prevTareas) => {
             // Si existe una tarea con el mismo ID, la reemplazamos
