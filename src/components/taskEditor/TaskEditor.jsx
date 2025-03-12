@@ -1,12 +1,13 @@
 //componente que contendra el formulario para la creacion de las tareas 
 
-import { Button, Modal, Box, Typography, TextField } from "@mui/material";
+import { Button, Modal, Box, Typography, TextField, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio } from "@mui/material";
 import { useState, useEffect } from "react";
 
-const TaskEditor = ({ open, onClose, agregarTarea, tareaEditada }) => {
+const TaskEditor = ({ open, onClose, agregarTarea, tareaEditada, handleClose }) => {
 
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
+    const [prioridad, setPrioridad] = useState("media"); // Valor por defecto
 
 
     //para editar la card
@@ -14,9 +15,11 @@ const TaskEditor = ({ open, onClose, agregarTarea, tareaEditada }) => {
         if (tareaEditada) {
             setTitle(tareaEditada.title);
             setDescription(tareaEditada.description);
+            setPrioridad(tareaEditada.prioridad);
         } else {
             setTitle("");
             setDescription("");
+            setPrioridad("media");
         }
     }, [tareaEditada]);
 
@@ -24,13 +27,18 @@ const TaskEditor = ({ open, onClose, agregarTarea, tareaEditada }) => {
     //manejar el envio del formulario
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Nueva Tarea:", { title, description });
-
+        console.log("Nueva Tarea:", { title, description, prioridad });
+        
+        if (!prioridad) {
+            alert("Por favor, selecciona una prioridad.");
+            return;
+          }
         //genera una nueva tarea
         const nuevaTarea = {
             id: tareaEditada ? tareaEditada.id : Date.now(),
             title,
             description,
+            prioridad,
         };
 
         agregarTarea(nuevaTarea); // Llama a la función de TaskBoard
@@ -38,6 +46,7 @@ const TaskEditor = ({ open, onClose, agregarTarea, tareaEditada }) => {
         // Limpia el formulario
         setTitle("");
         setDescription("");
+        setPrioridad("media");
         onClose();
     };
 
@@ -49,7 +58,9 @@ const TaskEditor = ({ open, onClose, agregarTarea, tareaEditada }) => {
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
         >
-            <Box sx={style}>
+            <Box 
+                sx={style}
+                key={open} >
                 <Typography id="modal-modal-title" variant="h6" component="h2" color="primary">
                     Crear Nueva Tarea
                 </Typography>
@@ -74,6 +85,42 @@ const TaskEditor = ({ open, onClose, agregarTarea, tareaEditada }) => {
                         sx={{ mb: 2 }}
                         required
                     />
+
+                    <FormControl sx={{ display: "flex", alignItems: "center", mb: 2 }} >
+                        <FormLabel
+                            required
+                            id="demo-radio-buttons-group-label"
+                            sx={(theme) => ({
+                                color: theme.palette.primary.main,
+                                fontWeight: "bold",
+                                m: 1
+                            })}
+                        >Prioridad</FormLabel>
+                        <RadioGroup
+                            aria-labelledby="demo-radio-buttons-group-label"
+
+                            name="radio-buttons-group"
+                            onChange={(e) => setPrioridad(e.target.value)}
+                            sx={{ display: "flex" }}
+                        >
+                            <FormControlLabel
+                                value="alta"
+                                control={<Radio sx={{ color: "#E53935", '&.Mui-checked': { color: "#E53935" } }} />}
+                                label="Alta"
+                            />
+                            <FormControlLabel
+                                value="media"
+                                control={<Radio sx={{ color: "#FFB300", '&.Mui-checked': { color: "#FFB300" } }} />}
+                                label="Media"
+                            />
+                            <FormControlLabel
+                                value="baja"
+                                control={<Radio sx={{ color: "#43A047", '&.Mui-checked': { color: "#43A047" } }} />}
+                                label="Baja"
+                            />
+                        </RadioGroup>
+                    </FormControl>
+
                     <Button type="submit" variant="contained" color="primary" fullWidth>
                         Guardar Tarea
                     </Button>
@@ -95,7 +142,7 @@ const style = {
     width: 400,
     bgcolor: "background.paper",
     boxShadow: 24,
-    p: 4,
+    p: 5,
     borderRadius: 2,
 };
 
