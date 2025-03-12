@@ -29,20 +29,3 @@ const Pizarra = ({ tareas, eliminarTarea, editarTarea }) => {
 export default Pizarra;
 
 
-{/* <div className="columnaInicio">
-                <div className="titulo_columna">
-                    <h3>INICIO</h3>
-                </div>
-                <div className="ubicacion_cards">
-                    {tareas.map((tarea) => (
-                        <TaskCard
-                            key={tarea.id}
-                            id={tarea.id}
-                            title={tarea.title}
-                            description={tarea.description}
-                            eliminarTarea={eliminarTarea}
-                            editarTarea={editarTarea}
-                        />
-                    ))}
-                </div>
-            </div> */}
